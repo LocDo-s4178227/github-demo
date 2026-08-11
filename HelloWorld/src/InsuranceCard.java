@@ -1,14 +1,16 @@
 public class InsuranceCard
 {
     private String cardNumber;
+    private String cardHolderId;
     private String providerName;
-    private String policyHolderName;
+    private String policyHolderId;
     private String expirationDate;
 
-    public InsuranceCard(String cardNumber, String providerName, String policyHolderName, String expirationDate) {
+    public InsuranceCard(String cardNumber, String cardHolderId, String providerName, String policyHolderId, String expirationDate) {
         this.cardNumber = cardNumber;
+        this.cardHolderId = cardHolderId;
         this.providerName = providerName;
-        this.policyHolderName = policyHolderName;
+        this.policyHolderId = policyHolderId;
         this.expirationDate = expirationDate;
     }
 
@@ -28,12 +30,12 @@ public class InsuranceCard
         this.providerName = providerName;
     }
 
-    public String getPolicyHolderName() {
-        return policyHolderName;
+    public String getPolicyHolderId() {
+        return policyHolderId;
     }
 
-    public void setPolicyHolderName(String policyHolderName) {
-        this.policyHolderName = policyHolderName;
+    public void setPolicyHolderId(String policyHolderId) {
+        this.policyHolderId = policyHolderId;
     }
 
     public String getExpirationDate() {
@@ -42,5 +44,13 @@ public class InsuranceCard
 
     public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public String getCardHolderId() {
+        return cardHolderId;
+    }
+
+    public void setCardHolderId(String cardHolderId) {
+        this.cardHolderId = cardHolderId;
     }
 }

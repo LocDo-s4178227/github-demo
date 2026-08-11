@@ -1,15 +1,26 @@
 public class Claim
 {
+    private String Id;
     private String claimId;
     private String claimantName;
     private double claimAmount;
     private String claimStatus;
 
-    public Claim(String claimId, String claimantName, double claimAmount, String claimStatus) {
+
+    public Claim(String Id, String claimId, String claimantName, double claimAmount, String claimStatus) {
+        this.Id = Id;
         this.claimId = claimId;
         this.claimantName = claimantName;
         this.claimAmount = claimAmount;
         this.claimStatus = claimStatus;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String Id) {
+        this.Id = Id;
     }
 
     public String getClaimId() {
