@@ -66,6 +66,9 @@ public class Customer {
                 "fullname='" + fullname + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
+                ", id='" + id + '\'' +
+                ", customerType='" + customerType + '\'' +
+                ", parentPolicyHolderId='" + parentPolicyHolderId + '\'' +
                 '}';
     }
 }
