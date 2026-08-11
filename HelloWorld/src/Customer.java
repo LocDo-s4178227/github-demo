@@ -1,20 +1,23 @@
 public class Customer {
-    private String name;
+    private String fullname;
     private int age;
     private String email;
+    private String id;
+    private String customerType;
+    private String parentPolicyHolderId ;
 
-    public Customer(String name, int age, String email) {
-        this.name = name;
+    public Customer(String fullname, int age, String email) {
+        this.fullname = fullname;
         this.age = age;
         this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public int getAge() {
@@ -33,10 +36,34 @@ public class Customer {
         this.email = email;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(String customerType) {
+        this.customerType = customerType;
+    }
+
+    public String getParentPolicyHolderId() {
+        return parentPolicyHolderId;
+    }
+
+    public void setParentPolicyHolderId(String parentPolicyHolderId) {
+        this.parentPolicyHolderId = parentPolicyHolderId;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
-                "name='" + name + '\'' +
+                "fullname='" + fullname + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 '}';
