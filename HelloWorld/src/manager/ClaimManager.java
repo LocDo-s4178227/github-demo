@@ -2,6 +2,8 @@
  * @author <s4178227 - Do Dac Loc>
  */
 
+package manager;
+
 import model.Claim;
 import model.Customer;
 import model.InsuranceCard;
@@ -108,8 +110,7 @@ public class ClaimManager {
         }
         return null;
     }
-
-
+    
     public List<Claim> getAllClaims() {
         return claimList;
     }
