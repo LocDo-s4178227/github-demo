@@ -1,45 +1,82 @@
+/**
+ * @author <s4178227 - Do Dac Loc>
+ */
+
 import java.time.LocalDateTime;
+import java.util.List;
 public class Claim
 {
-    private String Id;
+    private String id;
     private LocalDateTime claimDate;
-    private String claimId;
-    private String claimantName;
+    private String insuredPersonId;
+    private String cardNumber;
+    private LocalDateTime examdate;
+    private List<String> documents;
     private double claimAmount;
-    private String claimStatus;
+    private String status;
 
+    public enum Status {
+    New,
+    Processing,
+    Done
+}
 
-    public Claim(String Id, LocalDateTime claimDate, String claimId, String claimantName, double claimAmount, String claimStatus) {
-        this.Id = Id;
+    public Claim(String id, LocalDateTime claimDate, String insuredPersonId, String cardNumber, LocalDateTime examdate, List<String> documents, double claimAmount) {
+        this.id = id;
         this.claimDate = claimDate;
-        this.claimId = claimId;
-        this.claimantName = claimantName;
+        this.insuredPersonId = insuredPersonId;
+        this.cardNumber = cardNumber;
+        this.examdate = examdate;
+        this.documents = documents;
         this.claimAmount = claimAmount;
-        this.claimStatus = claimStatus;
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(String Id) {
-        this.Id = Id;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getClaimId() {
-        return claimId;
+    public LocalDateTime getClaimDate() {
+        return claimDate;
     }
 
-    public void setClaimId(String claimId) {
-        this.claimId = claimId;
+    public void setClaimDate(LocalDateTime claimDate) {
+        this.claimDate = claimDate;
     }
 
-    public String getClaimantName() {
-        return claimantName;
+    public String getInsuredPersonId() {
+        return insuredPersonId;
     }
 
-    public void setClaimantName(String claimantName) {
-        this.claimantName = claimantName;
+    public void setInsuredPersonId(String insuredPersonId) {
+        this.insuredPersonId = insuredPersonId;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public LocalDateTime getExamdate() {
+        return examdate;
+    }
+
+    public void setExamdate(LocalDateTime examdate) {
+        this.examdate = examdate;
+    }
+
+    public List<String> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<String> documents) {
+        this.documents = documents;
     }
 
     public double getClaimAmount() {
@@ -50,19 +87,11 @@ public class Claim
         this.claimAmount = claimAmount;
     }
 
-    public String getClaimStatus() {
-        return claimStatus;
+    public String getStatus() {
+        return status;
     }
 
-    public void setClaimStatus(String claimStatus) {
-        this.claimStatus = claimStatus;
-    }
-
-    public LocalDateTime getClaimDate() {
-        return claimDate;
-    }
-
-    public void setClaimDate(LocalDateTime claimDate) {
-        this.claimDate = claimDate;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

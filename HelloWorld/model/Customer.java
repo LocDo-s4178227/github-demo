@@ -1,7 +1,3 @@
-/**
- * @author <s4178227 - Do Dac Loc>
- */
-
 public class Customer {
     private String fullname;
     private int age;
