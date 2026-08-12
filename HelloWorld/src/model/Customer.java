@@ -1,15 +1,35 @@
+/**
+ * @author <s4178227 - Do Dac Loc>
+ */
+
+package model;
 public class Customer {
+
+    private String id;
     private String fullname;
     private int age;
     private String email;
-    private String id;
     private String customerType;
     private String parentPolicyHolderId ;
 
-    public Customer(String fullname, int age, String email) {
+    public Customer() {
+    }
+
+    public Customer(String id, String fullname, int age, String email, String customerType, String parentPolicyHolderId) {
+        this.id = id;
         this.fullname = fullname;
         this.age = age;
         this.email = email;
+        this.customerType = customerType;
+        this.parentPolicyHolderId = parentPolicyHolderId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+        public void setId(String id) {
+        this.id = id;
     }
 
     public String getFullname() {
@@ -34,14 +54,6 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getCustomerType() {

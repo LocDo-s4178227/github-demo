@@ -1,17 +1,26 @@
+/**
+ * @author <s4178227 - Do Dac Loc>
+ */
+
+package model;
+
 import java.time.LocalDateTime;
 public class InsuranceCard
 {
     private String cardNumber;
     private String cardHolderId;
     private String providerName;
-    private String policyHolderId;
+    private String policyOwnerId;
     private LocalDateTime expirationDate;
 
-    public InsuranceCard(String cardNumber, String cardHolderId, String providerName, String policyHolderId, LocalDateTime  expirationDate) {
+    public InsuranceCard() {
+    }
+
+    public InsuranceCard(String cardNumber, String cardHolderId, String providerName, String policyOwnerId, LocalDateTime  expirationDate) {
         this.cardNumber = cardNumber;
         this.cardHolderId = cardHolderId;
         this.providerName = providerName;
-        this.policyHolderId = policyHolderId;
+        this.policyOwnerId = policyOwnerId;
         this.expirationDate = expirationDate;
     }
 
@@ -31,12 +40,12 @@ public class InsuranceCard
         this.providerName = providerName;
     }
 
-    public String getPolicyHolderId() {
-        return policyHolderId;
+    public String getPolicyOwnerId() {
+        return policyOwnerId;
     }
 
-    public void setPolicyHolderId(String policyHolderId) {
-        this.policyHolderId = policyHolderId;
+    public void setPolicyOwnerId(String policyOwnerId) {
+        this.policyOwnerId = policyOwnerId;
     }
 
     public LocalDateTime getExpirationDate() {
