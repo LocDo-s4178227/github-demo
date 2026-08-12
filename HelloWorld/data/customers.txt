@@ -1,0 +1,15 @@
+c-0000001,Nguyen Van An,PolicyHolder,
+c-0000002,Tran Thi Binh,PolicyHolder,
+c-0000003,Le Van Cuong,Dependent,c-0000001
+c-0000004,Pham Thi Dung,Dependent,c-0000001
+c-0000005,Hoang Van Em,PolicyHolder,
+c-0000006,Vup Thi Hoa,Dependent,c-0000005
+c-0000007,Do Van Hung,Dependent,c-0000005
+c-0000008,Nguyen Thi Lan,PolicyHolder,
+c-0000009,Tran Van Minh,Dependent,c-0000008
+c-0000010,Le Thi Ngoc,Dependent,c-0000008
+c-0000011,Pham Van Phuc,PolicyHolder,
+c-0000012,Hoang Thi Quy,Dependent,c-0000011
+c-0000013,Vu Van Son,PolicyHolder,
+c-0000014,Do Thi Tam,Dependent,c-0000013
+c-0000015,Nguyen Van Vinh,Dependent,c-0000013
