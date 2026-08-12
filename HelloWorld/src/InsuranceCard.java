@@ -1,12 +1,13 @@
+import java.time.LocalDateTime;
 public class InsuranceCard
 {
     private String cardNumber;
     private String cardHolderId;
     private String providerName;
     private String policyHolderId;
-    private String expirationDate;
+    private LocalDateTime expirationDate;
 
-    public InsuranceCard(String cardNumber, String cardHolderId, String providerName, String policyHolderId, String expirationDate) {
+    public InsuranceCard(String cardNumber, String cardHolderId, String providerName, String policyHolderId, LocalDateTime  expirationDate) {
         this.cardNumber = cardNumber;
         this.cardHolderId = cardHolderId;
         this.providerName = providerName;
@@ -38,11 +39,11 @@ public class InsuranceCard
         this.policyHolderId = policyHolderId;
     }
 
-    public String getExpirationDate() {
+    public LocalDateTime getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(String expirationDate) {
+    public void setExpirationDate(LocalDateTime expirationDate) {
         this.expirationDate = expirationDate;
     }
 

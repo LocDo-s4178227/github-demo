@@ -1,14 +1,17 @@
+import java.time.LocalDateTime;
 public class Claim
 {
     private String Id;
+    private LocalDateTime claimDate;
     private String claimId;
     private String claimantName;
     private double claimAmount;
     private String claimStatus;
 
 
-    public Claim(String Id, String claimId, String claimantName, double claimAmount, String claimStatus) {
+    public Claim(String Id, LocalDateTime claimDate, String claimId, String claimantName, double claimAmount, String claimStatus) {
         this.Id = Id;
+        this.claimDate = claimDate;
         this.claimId = claimId;
         this.claimantName = claimantName;
         this.claimAmount = claimAmount;
@@ -53,5 +56,13 @@ public class Claim
 
     public void setClaimStatus(String claimStatus) {
         this.claimStatus = claimStatus;
+    }
+
+    public LocalDateTime getClaimDate() {
+        return claimDate;
+    }
+
+    public void setClaimDate(LocalDateTime claimDate) {
+        this.claimDate = claimDate;
     }
 }
