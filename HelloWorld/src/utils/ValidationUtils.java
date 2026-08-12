@@ -6,6 +6,7 @@ import java.util.List;
  *
  * @author s4178227 - Do Dac Loc
  */
+
 public class ValidationUtils {
 
     private static final String CUSTOMER_ID_REGEX = "^c-\\d{7}$";
@@ -98,8 +99,8 @@ public class ValidationUtils {
                 && "Done".equals(newStatus)) {
             return true;
         }
+        
 
         return false;
     }
 }
-```

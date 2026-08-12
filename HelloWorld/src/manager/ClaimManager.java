@@ -7,6 +7,7 @@ package manager;
 import model.Claim;
 import model.Customer;
 import model.InsuranceCard;
+import utils.ValidationUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +18,51 @@ public class ClaimManager {
     private List<InsuranceCard> cardList = new ArrayList<>();
     private List<Claim> claimList = new ArrayList<>();
 
-    public void addCustomer(Customer customer) {
-        customerList.add(customer);
+    public boolean addCustomer(Customer customer) {
+
+    if (customer == null) {
+        return false;
     }
+
+    if (!ValidationUtils.isValidCustomerId(customer.getId())) {
+        return false;
+    }
+
+    if (!ValidationUtils.isValidCustomerType(
+            customer.getCustomerType())) {
+        return false;
+    }
+
+    if ("Dependent".equals(customer.getCustomerType())) {
+
+        if (customer.getParentPolicyHolderId() == null) {
+            return false;
+        }
+
+        Customer parent = getCustomerById(
+                customer.getParentPolicyHolderId());
+
+        if (parent == null) {
+            return false;
+        }
+
+        if (!"PolicyHolder".equals(parent.getCustomerType())) {
+            return false;
+        }
+    }
+
+    if ("PolicyHolder".equals(customer.getCustomerType())
+            && customer.getParentPolicyHolderId() != null) {
+        return false;
+    }
+
+    if (getCustomerById(customer.getId()) != null) {
+        return false;
+    }
+
+    customerList.add(customer);
+    return true;
+    }   
 
     public boolean updateCustomer(Customer customer) {
         for (int i = 0; i < customerList.size(); i++) {
@@ -49,8 +92,35 @@ public class ClaimManager {
         return customerList;
     }
 
-    public void addCard(InsuranceCard card) {
-        cardList.add(card);
+public boolean addCard(InsuranceCard card) {
+
+    if (card == null) {
+        return false;
+    }
+
+    if (!ValidationUtils.isValidCardNumber(
+            card.getCardNumber())) {
+        return false;
+    }
+
+    if (getCardByNumber(card.getCardNumber()) != null) {
+        return false;
+    }
+
+    if (getCustomerById(card.getCardHolderId()) == null) {
+        return false;
+    }
+
+    if (getCustomerById(card.getPolicyOwnerId()) == null) {
+        return false;
+    }
+
+    if (card.getExpirationDate() == null) {
+        return false;
+    }
+
+    cardList.add(card);
+    return true;
     }
 
     public boolean updateCard(InsuranceCard card) {
@@ -83,8 +153,69 @@ public class ClaimManager {
         return cardList;
     }
 
-    public void addClaim(Claim claim) {
-        claimList.add(claim);
+    public boolean addClaim(Claim claim) {
+
+    if (claim == null) {
+        return false;
+    }
+
+    if (!ValidationUtils.isValidClaimId(claim.getId())) {
+        return false;
+    }
+
+    if (getClaimById(claim.getId()) != null) {
+        return false;
+    }
+
+    Customer customer =
+            getCustomerById(claim.getInsuredPersonId());
+
+    if (customer == null) {
+        return false;
+    }
+
+    InsuranceCard card =
+            getCardByNumber(claim.getCardNumber());
+
+    if (card == null) {
+        return false;
+    }
+
+    if (!ValidationUtils.isValidClaimAmount(
+            claim.getClaimAmount())) {
+        return false;
+    }
+
+    if (claim.getClaimDate() == null
+            || claim.getExamDate() == null) {
+        return false;
+    }
+
+    if (claim.getExamDate().isAfter(
+            claim.getClaimDate())) {
+        return false;
+    }
+
+    if (card.getExpirationDate() == null
+            || !claim.getExamDate().isBefore(
+                    card.getExpirationDate())) {
+        return false;
+    }
+
+    // Check documents
+    if (!ValidationUtils.areDocumentsValid(
+            claim.getDocuments())) {
+        return false;
+    }
+
+    // Check status
+    if (!ValidationUtils.isValidStatus(
+            claim.getStatus())) {
+        return false;
+    }
+
+    claimList.add(claim);
+    return true;
     }
 
     public boolean updateClaim(Claim claim) {
@@ -110,9 +241,8 @@ public class ClaimManager {
         }
         return null;
     }
-    
+
     public List<Claim> getAllClaims() {
         return claimList;
     }
 }
-```
